@@ -7,4 +7,20 @@ ul {
     display: flex;
     justify-content: center;
 }
+ul > li {
+    padding: 0 10px;
+}
+.link {
+    text-decoration: none;
+    color: orange;
+}
 table {margin: 0 auto;}
+td {
+    padding: 5px;
+    background-color: gray;
+    color: white;
+    border-radius: 5px;
+}
+img {
+    border-radius: 50%;
+}
