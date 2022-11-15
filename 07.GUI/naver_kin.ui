@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>429</width>
+    <width>436</width>
     <height>464</height>
    </rect>
   </property>
@@ -83,7 +83,10 @@
       </layout>
      </item>
      <item>
-      <layout class="QHBoxLayout" name="horizontalLayout">
+      <layout class="QHBoxLayout" name="horizontalLayout" stretch="4,1">
+       <property name="leftMargin">
+        <number>0</number>
+       </property>
        <item>
         <widget class="QTextBrowser" name="textBrowser">
          <property name="font">
@@ -96,6 +99,9 @@
        </item>
        <item>
         <layout class="QVBoxLayout" name="verticalLayout">
+         <property name="spacing">
+          <number>4</number>
+         </property>
          <item>
           <widget class="QPushButton" name="start_btn">
            <property name="font">
@@ -124,12 +130,6 @@
          </item>
          <item>
           <spacer name="verticalSpacer">
-           <property name="font">
-            <font>
-             <family>제주고딕</family>
-             <pointsize>14</pointsize>
-            </font>
-           </property>
            <property name="orientation">
             <enum>Qt::Vertical</enum>
            </property>
