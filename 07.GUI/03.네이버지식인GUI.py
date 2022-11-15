@@ -24,6 +24,7 @@ class MainDialog(QDialog):
     def start(self):
         input_keyword = self.keyword.text()
         input_page = int(self.page.text())
+        self.result = []
 
         for i in range(1, input_page + 1):
             self.textBrowser.append(f"{i}번째 페이지 크롤링 중..")
@@ -45,6 +46,7 @@ class MainDialog(QDialog):
                 print(i, title, link, date, content, end='\n')
                 self.textBrowser.append(f"{date} {title} {link} {content}")
                 QApplication.processEvents() # UI 업데이트
+                self.result.append([title, link, date, content])
     
     def reset(self):
         self.keyword.setText("")
@@ -52,7 +54,17 @@ class MainDialog(QDialog):
         self.textBrowser.setText("")
 
     def save(self):
-        pass
+        keyword = self.keyword.text()
+
+        # 엑셀 만들기
+        wb = openpyxl.Workbook()
+        ws = wb.active # 활성화된 시트 선택
+        ws.title = keyword# 시트 이름 변경
+
+        ws.append(['제목', '링크', '날짜', '내용'])
+        for res in self.result:
+            ws.append(res)
+        wb.save(f'{keyword}.xlsx')
 
     def close(self):
         sys.exit()
